@@ -8,6 +8,7 @@ let cell6 = 0
 let cell7 = 0
 let cell8 = 0
 let cell9 = 0
+let playerwin = 0
 
 function setup() 
 {
@@ -21,149 +22,183 @@ function draw()
   strokeWeight (0)
   textSize (30)
   stroke (0)
-  text ("turn: player " + playerturn, 100, 480)
   strokeWeight (3)
   line (125, 0, 125, 400)
   line (275, 0, 275, 400)
   line (0, 125, 400, 125)
   line (0, 275, 400, 275)
 
-  strokeWeight (5)
+
   
 
   if (cell1 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (10, 10, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (10, 10, 110, 110)
+    line (110, 10, 10, 110)
   }
   
   if (cell1 == 2)
   {
     stroke ("red")
-    strokeWeight (7)
+    strokeWeight (10)
     fill (70, 200, 50)
-    circle (60, 60, 70)
+    circle (60, 60, 100)
   }
 
   if (cell2 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (150, 10, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (150, 10, 250, 110)
+    line (250, 10, 150, 110)
   }
     
   if (cell2 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (200, 60, 70)
+    strokeWeight (10)
+    circle (200, 60, 100)
   }
 
   if (cell3 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (300, 10, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (290, 10, 390, 110)
+    line (390, 10, 290, 110)
   }
       
   if (cell3 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (340, 60, 70)
+    strokeWeight (10)
+    circle (340, 60, 100)
   }
 
   if (cell4 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (10, 150, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (10, 140, 110, 250)
+    line (10, 250, 110, 140)
   }
 
   if (cell4 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (60, 200, 70)
+    strokeWeight (10)
+    circle (60, 200, 100)
   }
   
   if (cell5 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (150, 150, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (150, 140, 250, 250)
+    line (150, 250, 250, 140)
   }
   
   if (cell5 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (200, 200, 70)
+    strokeWeight (10)
+    circle (200, 200, 100)
   }
 
   if (cell6 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (350, 150, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (290, 140, 390, 250)
+    line (290, 250, 390, 140)
   }
   
   if (cell6 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (340, 200, 70)
+    strokeWeight (10)
+    circle (340, 200, 100)
   }
 
   if (cell7 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (10, 350, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (20, 290, 100, 380)
+    line (20, 380, 100, 290)
   }
   
   if (cell7 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (60, 345, 70)
+    strokeWeight (10)
+    circle (60, 345, 100)
   }
     
   if (cell8 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (150, 350, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (245, 290, 155, 380)
+    line (245, 380, 155, 290)
   }
     
   if (cell8 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (200, 345, 70)
+    strokeWeight (10)
+    circle (200, 345, 100)
   }
   
   if (cell9 == 1)
   {
     fill (255)
-    strokeWeight (0)
-    square (350, 350, 10)
+    strokeWeight (10)
+    stroke("blue")
+    line (380, 290, 300, 380)
+    line (380, 380, 300, 290)
   }
     
   if (cell9 == 2)
   {
     stroke ("red")
     fill (70, 200, 50)
-    strokeWeight (7)
-    circle (340, 345, 70)
+    strokeWeight (10)
+    circle (340, 345, 100)
+  }
+
+  if (playerwin == 1)
+  {
+    fill ("blue")
+    strokeWeight (2)
+    textSize (30)
+    stroke ("lightblue")
+    text ("Player 1 wins!", 100, 480)
+  }
+  else 
+  {
+    fill (0)
+    strokeWeight (0)
+    textSize (30)
+    stroke (0)
+    text ("turn: player " + playerturn, 100, 480)
   }
 }
 
@@ -228,6 +263,11 @@ function mouseClicked ()
   {
     cell9 = playerturn
     changePlayer();
+  }
+
+  if (cell1 == 1 && cell2 == 1 && cell3 == 1)
+  {
+    playerwin = 1 
   }
 }
 
