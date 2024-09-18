@@ -192,7 +192,7 @@ function draw()
     stroke ("lightblue")
     text ("Player 1 wins!", 100, 480)
   }
-  else 
+  if(playerwin == 0)
   {
     fill (0)
     strokeWeight (0)
@@ -200,12 +200,21 @@ function draw()
     stroke (0)
     text ("turn: player " + playerturn, 100, 480)
   }
+
+  if (playerwin == 2)
+  {
+    fill ("red")
+    strokeWeight (2)
+    textSize (30)
+    stroke ("lightred")
+    text ("Player 2 wins!", 100, 480)
+  }
+  
 }
 
 function mouseClicked ()
 {
   //cell 1
-  console.log (cell2)
   if (mouseX > 0 && mouseX < 123 && mouseY > 0 && mouseY < 123 && cell1 == 0)
   {
     cell1 = playerturn
@@ -264,10 +273,85 @@ function mouseClicked ()
     cell9 = playerturn
     changePlayer();
   }
-
+  //bovenste rij win 1
   if (cell1 == 1 && cell2 == 1 && cell3 == 1)
   {
     playerwin = 1 
+  }
+  //bovenste rij win 2
+  if (cell1 == 2 && cell2 == 2 && cell3 == 2)
+  {
+    playerwin = 2 
+  }
+  //middelste rij win 1
+  if (cell4 == 1 && cell5 == 1 && cell6 == 1)
+  {
+    playerwin = 1
+  }
+  //middelste rij win 2
+  if (cell4 == 2 && cell5 == 2 && cell6 == 2)
+  {
+    playerwin = 2
+  }
+  //onderste rij win 1
+  if (cell7 == 1 && cell8 == 1 && cell9 == 1)
+  {
+    playerwin = 1
+  }
+  //onderste rij win 2
+  if (cell7 == 2 && cell8 == 2 && cell9 == 2)
+  {
+    playerwin = 2
+  }
+  //boven naar onder links win 1
+  if (cell1 == 1 && cell4 == 1 && cell7 == 1)
+  {
+    playerwin = 1
+  }
+  //boven naar onder links win 2
+  if (cell1 == 2 && cell4 == 2 && cell7 == 2)
+  {
+    playerwin = 2
+  }
+  //boven naar onder midden win 1
+  if (cell2 == 1 && cell5 == 1 && cell8 == 1)
+  {
+      playerwin = 1
+  }
+  //boven naar onder midden win 2
+  if (cell2 == 2 && cell5 == 2 && cell8 == 2)
+  {
+    playerwin = 2
+  }
+  //boven naar onder rechts win 1
+  if (cell3 == 1 && cell6 == 1 && cell9 == 1)
+  {
+    playerwin = 1
+  }
+  //boven naar onder rechts win 2
+  if (cell3 == 2 && cell6 == 2 && cell9 == 2)
+  {
+    playerwin = 2
+  }
+  //right top to left bottom win 1
+  if (cell3 == 1 && cell5 == 1 && cell7 == 1)
+  {
+    playerwin = 1
+  }
+  //right top to left bottom win 2
+  if (cell3 == 2 && cell5 == 2 && cell7 == 2)
+  {
+    playerwin = 2
+  }
+  //left top to right bottom win 1
+  if (cell1 == 1 && cell5 == 1 && cell9 == 1)
+  {
+    playerwin = 1
+  }
+  //right top to right bottom win 2
+  if (cell1 == 2 && cell5 == 2 && cell9 == 2)
+  {
+    playerwin = 2
   }
 }
 
