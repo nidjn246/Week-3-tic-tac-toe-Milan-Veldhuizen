@@ -9,6 +9,7 @@ let cell7 = 0
 let cell8 = 0
 let cell9 = 0
 let playerwin = 0
+let reset = 0
 
 function setup() 
 {
@@ -23,14 +24,13 @@ function draw()
   textSize (30)
   stroke (0)
   strokeWeight (3)
+  //the black lines
   line (125, 0, 125, 400)
   line (275, 0, 275, 400)
   line (0, 125, 400, 125)
   line (0, 275, 400, 275)
 
-
-  
-
+  //if cell1 is 1 make an X
   if (cell1 == 1)
   {
     fill (255)
@@ -39,7 +39,7 @@ function draw()
     line (10, 10, 110, 110)
     line (110, 10, 10, 110)
   }
-  
+  //if cell1 is 2 make an circle
   if (cell1 == 2)
   {
     stroke ("red")
@@ -47,7 +47,7 @@ function draw()
     fill (70, 200, 50)
     circle (60, 60, 100)
   }
-
+  //if cell2 is 1 make an X
   if (cell2 == 1)
   {
     fill (255)
@@ -56,7 +56,7 @@ function draw()
     line (150, 10, 250, 110)
     line (250, 10, 150, 110)
   }
-    
+  //if cell2 is 2 make an circle  
   if (cell2 == 2)
   {
     stroke ("red")
@@ -64,7 +64,7 @@ function draw()
     strokeWeight (10)
     circle (200, 60, 100)
   }
-
+  //if cell3 is 1 make an X
   if (cell3 == 1)
   {
     fill (255)
@@ -73,7 +73,7 @@ function draw()
     line (290, 10, 390, 110)
     line (390, 10, 290, 110)
   }
-      
+   //if cell3 is 2 make an circle   
   if (cell3 == 2)
   {
     stroke ("red")
@@ -81,7 +81,7 @@ function draw()
     strokeWeight (10)
     circle (340, 60, 100)
   }
-
+  //if cell4 is 1 make an X
   if (cell4 == 1)
   {
     fill (255)
@@ -90,7 +90,7 @@ function draw()
     line (10, 140, 110, 250)
     line (10, 250, 110, 140)
   }
-
+  //if cell4 is 2 make an circle
   if (cell4 == 2)
   {
     stroke ("red")
@@ -98,7 +98,7 @@ function draw()
     strokeWeight (10)
     circle (60, 200, 100)
   }
-  
+   //if cell5 is 1 make an X 
   if (cell5 == 1)
   {
     fill (255)
@@ -107,7 +107,7 @@ function draw()
     line (150, 140, 250, 250)
     line (150, 250, 250, 140)
   }
-  
+  //if cell5 is 2 make an circle 
   if (cell5 == 2)
   {
     stroke ("red")
@@ -115,7 +115,7 @@ function draw()
     strokeWeight (10)
     circle (200, 200, 100)
   }
-
+  //if cell6 is 1 make an X  
   if (cell6 == 1)
   {
     fill (255)
@@ -124,7 +124,7 @@ function draw()
     line (290, 140, 390, 250)
     line (290, 250, 390, 140)
   }
-  
+  //if cell6 is 2 make an circle 
   if (cell6 == 2)
   {
     stroke ("red")
@@ -132,7 +132,7 @@ function draw()
     strokeWeight (10)
     circle (340, 200, 100)
   }
-
+  //if cell7 is 1 make an X  
   if (cell7 == 1)
   {
     fill (255)
@@ -141,7 +141,7 @@ function draw()
     line (20, 290, 100, 380)
     line (20, 380, 100, 290)
   }
-  
+  //if cell7 is 1 make an circle  
   if (cell7 == 2)
   {
     stroke ("red")
@@ -149,7 +149,7 @@ function draw()
     strokeWeight (10)
     circle (60, 345, 100)
   }
-    
+  //if cell8 is 1 make an X    
   if (cell8 == 1)
   {
     fill (255)
@@ -158,7 +158,7 @@ function draw()
     line (245, 290, 155, 380)
     line (245, 380, 155, 290)
   }
-    
+  //if cell8 is 2 make an circle    
   if (cell8 == 2)
   {
     stroke ("red")
@@ -166,7 +166,7 @@ function draw()
     strokeWeight (10)
     circle (200, 345, 100)
   }
-  
+  //if cell9 is 1 make an X  
   if (cell9 == 1)
   {
     fill (255)
@@ -175,7 +175,7 @@ function draw()
     line (380, 290, 300, 380)
     line (380, 380, 300, 290)
   }
-    
+  //if cell9 is 2 make an circle   
   if (cell9 == 2)
   {
     stroke ("red")
@@ -183,15 +183,17 @@ function draw()
     strokeWeight (10)
     circle (340, 345, 100)
   }
-
+  //if playerwin is 1 start the timer and make a text player 1 wins
   if (playerwin == 1)
-  {
+  { 
     fill ("blue")
     strokeWeight (2)
     textSize (30)
     stroke ("lightblue")
     text ("Player 1 wins!", 100, 480)
+    reset = reset + 1
   }
+  //if playerwin is 0 make a text saying whos turn it is
   if(playerwin == 0)
   {
     fill (0)
@@ -199,8 +201,9 @@ function draw()
     textSize (30)
     stroke (0)
     text ("turn: player " + playerturn, 100, 480)
-  }
+    }
 
+  //if playerturn is 2 start the timer and make a text player 2 wins
   if (playerwin == 2)
   {
     fill ("red")
@@ -208,8 +211,25 @@ function draw()
     textSize (30)
     stroke ("lightred")
     text ("Player 2 wins!", 100, 480)
+    reset = reset + 1
+  } 
+  //if the timer is above 200 reset the cells and reset the timer and make it player 1's turn
+  if (reset > 200)
+  {
+    reset = reset
+    reset = 0
+    cell1 = 0
+    cell2 = 0
+    cell3 = 0
+    cell4 = 0
+    cell5 = 0
+    cell6 = 0
+    cell7 = 0
+    cell8 = 0
+    cell9 = 0
+    playerwin = 0
+    playerturn = 1
   }
-  
 }
 
 function mouseClicked ()
@@ -354,10 +374,11 @@ function mouseClicked ()
     playerwin = 2
   }
 }
-
 function changePlayer()
 {
+  //when this activates make playerturn +1
   playerturn = playerturn + 1
+
   if (playerturn > 2)
   {
     playerturn = 1
