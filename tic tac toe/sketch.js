@@ -10,6 +10,7 @@ let cell8 = 0
 let cell9 = 0
 let playerwin = 0
 let reset = 0
+let tie = 0
 
 function setup() 
 {
@@ -213,6 +214,16 @@ function draw()
     text ("Player 2 wins!", 100, 480)
     reset = reset + 1
   } 
+
+  if (playerwin == 3)
+  {
+    fill ("gray")
+    strokeWeight (2)
+    textSize (30)
+    stroke ("lightgray")
+    text ("Its a tie!", 140, 480)
+    reset = reset + 1
+    } 
   //if the timer is above 200 reset the cells and reset the timer and make it player 1's turn
   if (reset > 200)
   {
@@ -234,6 +245,7 @@ function draw()
 
 function mouseClicked ()
 {
+  if (playerwin == 0){
   //cell 1
   if (mouseX > 0 && mouseX < 123 && mouseY > 0 && mouseY < 123 && cell1 == 0)
   {
@@ -293,6 +305,7 @@ function mouseClicked ()
     cell9 = playerturn
     changePlayer();
   }
+}
   //bovenste rij win 1
   if (cell1 == 1 && cell2 == 1 && cell3 == 1)
   {
@@ -373,14 +386,20 @@ function mouseClicked ()
   {
     playerwin = 2
   }
+  console.log(playerwin)
+  if (tie == 9 )
+  {
+    playerwin = 3
+  }
 }
 function changePlayer()
 {
   //when this activates make playerturn +1
   playerturn = playerturn + 1
-
+  tie = tie + 1
   if (playerturn > 2)
   {
     playerturn = 1
   }
+  
 }
