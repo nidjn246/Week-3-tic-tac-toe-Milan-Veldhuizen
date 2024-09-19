@@ -214,7 +214,7 @@ function draw()
     text ("Player 2 wins!", 100, 480)
     reset = reset + 1
   } 
-
+  // if playerwin is 3 start the teset timer and make it display the text its a tie!
   if (playerwin == 3)
   {
     fill ("gray")
@@ -240,6 +240,7 @@ function draw()
     cell9 = 0
     playerwin = 0
     playerturn = 1
+    tie = 0
   }
 }
 
@@ -394,7 +395,7 @@ function mouseClicked ()
 }
 function changePlayer()
 {
-  //when this activates make playerturn +1
+  //when this activates make playerturn and tie +1
   playerturn = playerturn + 1
   tie = tie + 1
   if (playerturn > 2)
