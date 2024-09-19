@@ -387,8 +387,8 @@ function mouseClicked ()
   {
     playerwin = 2
   }
-  console.log(playerwin)
-  if (tie == 9 )
+
+  if (tie == 9 && playerwin == 0)
   {
     playerwin = 3
   }
